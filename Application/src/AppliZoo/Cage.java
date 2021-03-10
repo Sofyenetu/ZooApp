@@ -7,6 +7,9 @@ public class Cage {
 	private int numero;
 	private LinkedList<Felin> felins = new LinkedList<Felin>();
 	
+	public Cage() {
+		
+	}
 	
 	public Cage (int n) {
 		this.numero= n;

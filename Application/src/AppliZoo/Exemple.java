@@ -1,32 +1,34 @@
 package AppliZoo;
 
 import java.beans.XMLDecoder;
+
 import java.beans.XMLEncoder;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.swing.*;
 import java.awt.*;
 import org.json.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 
 public class Exemple {
 
 	public static void main(String[] args) {
 		
-		Zoo z1 = new Zoo("peaugres", "47, rue de la banque" );
+		Zoo z1 = new Zoo("peaugres", "47, rue de la banque");
 		
 
 		
-		Felin f1 = new Felin("leopardus", 3, "masculin");
-		Felin f2 = new Felin("felis", 7, "masculin");
-		Felin f3 = new Felin("pardofelius", 2, "feminin");
+		Felin f1 = new Felin("leopardus", 3, "male");
+		Felin f2 = new Felin("felis", 7, "femelle");
+		Felin f3 = new Felin("pardofelius", 2, "male");
 		
 		Cage c1 = new Cage(9987634);
 		
@@ -38,11 +40,13 @@ public class Exemple {
 		
 		z1.afficherinfo();
 		c1.afficherInfo();
+		f1.mange();
 				
 		new TexteHtml();
-		
+		//Bloc : ecriture dans DBzoo de l'objet
 		try {
-			FileOutputStream fos = new FileOutputStream(new File("C:\\Developpement\\Todo\\db_zoo"));
+			FileOutputStream fos = new FileOutputStream(new File("C:\\Developpement\\Todo\\db_zoo.xml"));
+		
 			XMLEncoder encoder = new XMLEncoder(fos);
 			encoder.writeObject(z1);
 			encoder.close();
@@ -52,20 +56,20 @@ public class Exemple {
 			System.out.println("Erreur lors de l'ecriture du fichier");	
 			ex.printStackTrace();
 		}
-		
+		//affichage de la base de données dans la console
 		try
 		{
-		creating a constructor of file class and parsing an XML file
-		File file = new File("C:\\Developpement\\Todo\\db_zoo - Copie.xml");
-		an instance of factory that gives a document builder
+		//creating a constructor of file class and parsing an XML file
+		File file = new File("C:\\Developpement\\Todo\\db_zoo_-_Copie.xml");
+		//an instance of factory that gives a document builder
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		an instance of builder to parse the specified xml file
+		//an instance of builder to parse the specified xml file
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(file);
 		doc.getDocumentElement().normalize();
 		System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 		NodeList nodeList = doc.getElementsByTagName("animal");
-		 nodeList is not iterable, so we are using for loop
+		 //nodeList is not iterable, so we are using for loop
 		for (int itr = 0; itr < nodeList.getLength(); itr++)
 		{
 		Node node = nodeList.item(itr);
@@ -77,7 +81,7 @@ public class Exemple {
 		System.out.println("Type Animal : "+ eElement.getElementsByTagName("typeanimal").item(0).getTextContent());
 		System.out.println("emplacement: "+ eElement.getElementsByTagName("emplacement").item(0).getTextContent());
 		System.out.println("Age: "+ eElement.getElementsByTagName("age").item(0).getTextContent());
-		System.out.println("vaccin�: "+ eElement.getElementsByTagName("vaccin�").item(0).getTextContent());
+		System.out.println("vaccin: "+ eElement.getElementsByTagName("vaccin").item(0).getTextContent());
 		System.out.println("eleveur: "+ eElement.getElementsByTagName("eleveur").item(0).getTextContent());
 		}
 		}

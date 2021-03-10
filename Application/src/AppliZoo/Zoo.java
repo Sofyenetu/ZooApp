@@ -1,7 +1,8 @@
 package AppliZoo;
 
 
-import java.io.*;  
+
+ 
 import java.util.LinkedList;
 
 
@@ -11,6 +12,10 @@ public class Zoo {
 	private LinkedList<Animal> animals = new LinkedList<Animal>();
 	private LinkedList<Cage> cages = new LinkedList<Cage>();
 
+	public Zoo() {
+		
+	}
+	
 	
 	public Zoo (String n, String ad) {
 		this.nom= n;
@@ -57,8 +62,8 @@ public class Zoo {
 
 	
 	public String toString() {
-		String str = "Listing des animaux du zoo " + this.getNom();
-		str = str + " situer" + this.getAdresse(); 
+		String str = "Listing des animaux du zoo:  " + this.getNom();
+		str = str + " situer " + this.getAdresse(); 
 		for(Animal ani: this.getAnimals()) {
 			str = str + ani.afficherinfos();
 		}

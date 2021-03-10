@@ -2,6 +2,10 @@ package AppliZoo;
 
 public class Felin extends Animal  {
 	
+	public Felin() {
+		super();
+	}
+	
 	public Felin(String n, int a, String s) {
 		super(n, a, s);
 	}
@@ -20,7 +24,7 @@ public class Felin extends Animal  {
 	
 public void mange() {
 	
-	System.out.println("mange de la viande");
+	System.out.println(this.getNom()+" mange de la viande");
 	
 		
 	}

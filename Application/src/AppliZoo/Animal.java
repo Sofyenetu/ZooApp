@@ -8,6 +8,9 @@ public class Animal {
 	private int age;
 	private String sexe;
 	
+	public Animal() {
+	
+	}
 	
 	public Animal(String n, int a, String s) {
 		this.nom=n;
@@ -35,15 +38,16 @@ public class Animal {
 	}
 	
 	public String afficherinfos() {
-		String str = "L'animal s'apelle " + this.getNom() + " il a " + this.getAge() +  " c'est un " + this.getSexe();
+		String str = " L'animal s'apelle " + this.getNom() + " il a " + this.getAge() +  " ans c'est un " + this.getSexe() ;
 		return str;
 	}
+	
+	
 		
 	
 	
-	
-	
 	public void mange() {
+	System.out.println("l'animal mange");
 	
 		
 	}

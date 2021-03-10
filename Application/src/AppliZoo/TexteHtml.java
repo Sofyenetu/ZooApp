@@ -16,7 +16,7 @@ public class TexteHtml extends JFrame {
 	JScrollPane texteAsc;
 	StringBuffer texte;
 
-	texte = saisirTexte("C:\\Developpement\\Todo\\db_zoo - Copie.xml");
+	texte = saisirTexte("C:\\Developpement\\Todo\\db_zoo_-_Copie.xml");
 
 	grandeZone = new JEditorPane("text/html", new String(texte));
 	grandeZone.setPreferredSize(new Dimension(300, 120));
